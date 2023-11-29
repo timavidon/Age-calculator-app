@@ -1,0 +1,189 @@
+:root {
+  /* Colors */
+  --primary-clr: hsl(259, 100%, 65%);
+  --second-primary-clr: hsl(0, 100%, 67%);
+
+  --neutral-clr-100: hsl(0, 0%, 100%);
+  --neutral-clr-120: hsl(0, 0%, 94%);
+  --neutral-clr-140: hsl(0, 0%, 86%);
+  --neutral-clr-200: hsl(0, 1%, 44%);
+  --neutral-clr-900: hsl(0, 0%, 8%);
+
+  /* Font families */
+  --ff-primary: "Poppins", sans-serif;
+
+  /* Font sizes */
+  --fs-inputs: 2rem;
+  --fs-900: 4.5rem;
+
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+}
+
+/* CSS Resets */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* Remove Arrows/Spinners in Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Remove Arrows/Spinners in Firefox */
+input[type="number"] {
+  appearance: textfield;
+}
+
+/* Main style */
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  font-family: var(--ff-primary);
+  margin: 1rem;
+  background-color: var(--neutral-clr-120);
+}
+
+.card {
+  position: relative;
+  max-width: 40rem;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem 1rem 5rem 1rem;
+  background-color: var(--neutral-clr-100);
+}
+
+label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--neutral-clr-200);
+}
+
+input {
+  font-size: var(--fs-inputs);
+  /* min-width: 11.3rem; */
+  max-width: 11.4rem;
+  padding: 1rem;
+  border: 1px solid var(--neutral-clr-140);
+  border-radius: 0.5rem;
+  color: var(--neutral-clr-900);
+}
+
+input::placeholder {
+  color: var(--neutral-clr-200);
+}
+
+input:focus {
+  outline: 1px solid var(--primary-clr);
+}
+
+.button {
+  position: absolute;
+  top: 35%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  padding: 1.2rem;
+  border: none;
+  border-radius: 100vw;
+  background-color: var(--primary-clr);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (min-width: 40.5em) {
+  .button {
+    right: 10%;
+  }
+}
+
+.button:hover {
+  background-color: var(--neutral-clr-900);
+}
+
+.divider {
+  height: 0.125rem;
+  margin: 2rem 0 1rem 0;
+  max-width: 100%;
+  background-color: var(--neutral-clr-120);
+}
+
+.result-type {
+  font-size: var(--fs-900);
+  font-style: italic;
+  font-weight: var(--fw-extra-bold);
+}
+
+.result {
+  color: var(--primary-clr);
+}
+
+.error-msg {
+  margin-top: 0.2rem;
+  visibility: hidden;
+  font-weight: var(--fw-regular);
+  font-style: italic;
+  color: var(--second-primary-clr);
+}
+
+/* Utilities */
+.flex-group-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-group-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.attribution {
+  display: block;
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.attribution a {
+  color: var(--primary-clr);
+}
+
+/* Utilities */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Error */
+[aria-invalid="true"],
+[aria-invalid="true"]:focus {
+  outline: 2px solid var(--second-primary-clr);
+}
+
+[aria-invalid="true"] ~ .error-msg {
+  visibility: visible;
+}
