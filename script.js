@@ -73,16 +73,19 @@ submitBtn.addEventListener("click", (e) => {
     userResultDays = userDay;
   }
 
-  const userAge = calculateAge(
-    `${userResultYears}-${userResultMonths}-${userResultDays}`
-  );
-
-  console.log(`userAge: ${userAge}`);
-  console.log(yearsResult);
-
-  yearsResult.innerHTML = userAge.years;
-  monthsResult.innerHTML = userAge.months;
-  daysResult.innerHTML = userAge.days;
+  // Calculate only if the user gave an input
+  if (userResultDays !== 0 && userResultMonths !== 0 && userResultYears !== 0) {
+    const userAge = calculateAge(
+      `${userResultYears}-${userResultMonths}-${userResultDays}`
+    );
+    yearsResult.innerHTML = userAge.years;
+    monthsResult.innerHTML = userAge.months;
+    daysResult.innerHTML = userAge.days;
+  } else {
+    yearsResult.innerHTML = "--";
+    monthsResult.innerHTML = "--";
+    daysResult.innerHTML = "--";
+  }
 });
 
 // Functions
