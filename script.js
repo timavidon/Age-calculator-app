@@ -8,6 +8,8 @@ const daysResult = document.querySelector(".days-result");
 const monthsResult = document.querySelector(".months-result");
 const yearsResult = document.querySelector(".years-result");
 
+
+
 let userResultDays = 0;
 let userResultMonths = 0;
 let userResultYears = 0;
@@ -78,10 +80,11 @@ submitBtn.addEventListener("click", (e) => {
   );
 
   console.log(`userAge: ${userAge}`);
+  console.log(yearsResult)
 
   yearsResult.innerHTML = userAge.years;
   monthsResult.innerHTML = userAge.months;
-  daysResultResult.innerHTML = userAge.days;
+  daysResult.innerHTML = userAge.days;
 });
 
 // Functions
@@ -143,7 +146,7 @@ function calculateAge(birthdate) {
 
 // Utilities
 function leapYear(year) {
-  if ((0 == year % 4 && 0 != year % 100) || 0 == year % 400) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
     return true;
   } else {
     return false;
