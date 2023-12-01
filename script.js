@@ -8,8 +8,6 @@ const daysResult = document.querySelector(".days-result");
 const monthsResult = document.querySelector(".months-result");
 const yearsResult = document.querySelector(".years-result");
 
-
-
 let userResultDays = 0;
 let userResultMonths = 0;
 let userResultYears = 0;
@@ -80,7 +78,7 @@ submitBtn.addEventListener("click", (e) => {
   );
 
   console.log(`userAge: ${userAge}`);
-  console.log(yearsResult)
+  console.log(yearsResult);
 
   yearsResult.innerHTML = userAge.years;
   monthsResult.innerHTML = userAge.months;
