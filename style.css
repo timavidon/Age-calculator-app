@@ -15,6 +15,7 @@
   /* Font sizes */
   --fs-inputs: 2rem;
   --fs-900: 4.5rem;
+  --fs-900: 6rem;
 
   /* Font weights */
   --fw-regular: 400;
@@ -62,14 +63,19 @@ body {
   font-family: var(--ff-primary);
   margin: 1rem;
   background-color: var(--neutral-clr-120);
+  overflow: hidden;
 }
 
 .card {
   position: relative;
-  max-width: 40rem;
-  padding: 2.5rem 2rem;
-  border-radius: 1rem 1rem 5rem 1rem;
+  max-width: 50rem;
+  padding: 3rem;
+  border-radius: 1rem 1rem 10rem 1rem;
   background-color: var(--neutral-clr-100);
+}
+
+form {
+  max-width: 100%;
 }
 
 label {
@@ -80,9 +86,9 @@ label {
 
 input {
   font-size: var(--fs-inputs);
-  /* min-width: 11.3rem; */
-  max-width: 11.4rem;
-  padding: 1rem;
+  max-width: 15rem;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
   border: 1px solid var(--neutral-clr-140);
   border-radius: 0.5rem;
   color: var(--neutral-clr-900);
@@ -90,6 +96,7 @@ input {
 
 input::placeholder {
   color: var(--neutral-clr-200);
+  opacity: 0.9;
 }
 
 input:focus {
@@ -98,10 +105,10 @@ input:focus {
 
 .button {
   position: absolute;
-  top: 36.5%;
-  right: 50%;
+  top: 35%;
+  right: 45%;
   transform: translate(50%, -50%);
-  padding: 1.2rem;
+  padding: 3vw;
   border: none;
   border-radius: 100vw;
   background-color: var(--primary-clr);
@@ -109,25 +116,29 @@ input:focus {
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@media (min-width: 40.5em) {
-  .button {
-    right: 10%;
-  }
-}
-
 .button:hover {
   background-color: var(--neutral-clr-900);
 }
 
+.button svg {
+  height: 5.5vw;
+  width: 5.5vw;
+}
+
+.button svg g {
+  stroke-width: 3;
+}
+
 .divider {
   height: 0.125rem;
-  margin: 2.5rem 0 1rem 0;
+  margin: 2.5rem 0 2rem 0;
   max-width: 100%;
   background-color: var(--neutral-clr-120);
 }
 
 .result-type {
-  font-size: var(--fs-900);
+  line-height: 1.1;
+  font-size: 11vw;
   font-style: italic;
   font-weight: var(--fw-extra-bold);
 }
@@ -137,7 +148,6 @@ input:focus {
 }
 
 .error-msg {
-  margin-top: 0.2rem;
   visibility: hidden;
   font-weight: var(--fw-regular);
   font-style: italic;
@@ -148,11 +158,14 @@ input:focus {
 .flex-group-column {
   display: flex;
   flex-direction: column;
+  max-height: 136.2px;
+  gap: 0.5rem;
 }
 
 .flex-group-row {
+  max-width: 100%;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .attribution {
@@ -186,4 +199,29 @@ input:focus {
 
 [aria-invalid="true"] ~ .error-msg {
   visibility: visible;
+}
+
+/* Desktop */
+@media (min-width: 44.5em) {
+  .button {
+    right: 11.8%;
+    padding: 1.3rem;
+  }
+
+  .result-type {
+    font-size: var(--fs-900);
+  }
+
+  form {
+    margin-right: 8rem;
+  }
+
+  .button svg {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .button svg g {
+    stroke-width: 1.7;
+  }
 }
