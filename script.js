@@ -85,9 +85,9 @@ submitBtn.addEventListener("click", (e) => {
     monthsResult.innerHTML = userAge.months;
     daysResult.innerHTML = userAge.days;
   } else {
-    yearsResult.innerHTML = "--";
-    monthsResult.innerHTML = "--";
-    daysResult.innerHTML = "--";
+    yearsResult.innerHTML = "- -";
+    monthsResult.innerHTML = "- -";
+    daysResult.innerHTML = "- -";
   }
 });
 
