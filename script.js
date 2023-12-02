@@ -52,6 +52,7 @@ submitBtn.addEventListener("click", (e) => {
   // Checks if the year is valid
   if (checkYear(userYear)) {
     yearInput.setAttribute("aria-invalid", "true");
+    userResultYears = 0;
   } else {
     yearInput.setAttribute("aria-invalid", "false");
     userResultYears = userYear;
@@ -60,14 +61,16 @@ submitBtn.addEventListener("click", (e) => {
   // Checks if the month is valid
   if (checkMonth(userMonth)) {
     monthInput.setAttribute("aria-invalid", "true");
+    userResultMonths = 0;
   } else {
     monthInput.setAttribute("aria-invalid", "false");
     userResultMonths = userMonth;
   }
 
   // Checks if the day is valid
-  if (checkDay(userDay)) {
+  if (checkDay(userDay, userMonth)) {
     dayInput.setAttribute("aria-invalid", "true");
+    userResultDays = 0;
   } else {
     dayInput.setAttribute("aria-invalid", "false");
     userResultDays = userDay;
@@ -91,7 +94,12 @@ submitBtn.addEventListener("click", (e) => {
 // Functions
 function checkDay(userDay, userMonth) {
   let monthName = Object.keys(months)[userMonth - 1];
-  return userDay === "" || 0 < userDay <= months[monthName];
+  return (
+    userDay === "" ||
+    0 >= userDay ||
+    userDay > 31 ||
+    userDay > months[monthName]
+  );
 }
 
 function checkMonth(userMonth) {
@@ -100,7 +108,7 @@ function checkMonth(userMonth) {
 }
 
 function checkYear(userYear) {
-  return userYear === "" || userYear > currentYear;
+  return userYear === "" || userYear > currentYear || 0 > userYear;
 }
 
 function calculateAge(birthdate) {
