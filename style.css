@@ -63,14 +63,13 @@ body {
   font-family: var(--ff-primary);
   margin: 1rem;
   background-color: var(--neutral-clr-120);
-  overflow: hidden;
 }
 
 .card {
   position: relative;
   max-width: 50rem;
   padding: 3rem;
-  border-radius: 1.5rem 1.5rem 10rem 1.5rem;
+  border-radius: 1.5rem;
   background-color: var(--neutral-clr-100);
 }
 
@@ -85,8 +84,8 @@ label {
 }
 
 input {
-  font-size: var(--fs-inputs);
-  max-width: 15rem;
+  font-size: 5vw;
+  max-width: 24rem;
   width: 100%;
   padding: 0.5rem 1.5rem;
   border: 1px solid var(--neutral-clr-140);
@@ -105,9 +104,8 @@ input:focus {
 
 .button {
   position: absolute;
-  top: 34%;
-  right: 45%;
-  transform: translate(50%, -50%);
+  top: 57.5vh;
+  right: 41.5%;
   padding: 3vw;
   border: none;
   border-radius: 100vw;
@@ -165,7 +163,7 @@ input:focus {
 .flex-group-row {
   max-width: 100%;
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
 }
 
 .attribution {
@@ -202,9 +200,18 @@ input:focus {
 }
 
 /* Desktop */
-@media (min-width: 44.5em) {
+@media (min-width: 42em) {
+  body {
+    overflow: hidden;
+  }
+
+  .card {
+    border-radius: 1.5rem 1.5rem 10rem 1.5rem;
+  }
+
   .button {
-    right: 11.6%;
+    top: 27%;
+    right: 6%;
     padding: 1.3rem;
   }
 
@@ -214,6 +221,16 @@ input:focus {
 
   form {
     margin-right: 6rem;
+  }
+
+  input {
+    font-size: var(--fs-inputs);
+    max-width: 15rem;
+  }
+
+  .flex-group-row {
+    flex-direction: row;
+    gap: 2rem;
   }
 
   .button svg {
