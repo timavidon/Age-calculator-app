@@ -66,7 +66,7 @@ body {
 }
 
 .card {
-  position: relative;
+  /* position: relative; */
   max-width: 50rem;
   padding: 3rem;
   border-radius: 1.5rem;
@@ -74,7 +74,7 @@ body {
 }
 
 form {
-  max-width: 100%;
+  position: relative;
 }
 
 label {
@@ -104,8 +104,8 @@ input:focus {
 
 .button {
   position: absolute;
-  top: 57.5vh;
-  right: 41.5%;
+  top: 98.5%;
+  right: 38%;
   padding: 3vw;
   border: none;
   border-radius: 100vw;
@@ -210,8 +210,8 @@ input:focus {
   }
 
   .button {
-    top: 27%;
-    right: 6%;
+    top: 90%;
+    right: -7rem;
     padding: 1.3rem;
   }
 
