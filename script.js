@@ -80,7 +80,7 @@ submitBtn.addEventListener("click", (e) => {
   if (userResultDays !== 0 && userResultMonths !== 0 && userResultYears !== 0) {
     const userAge = calculateAge(
       `${userResultYears}-${userResultMonths}-${userResultDays}`
-    );
+    , userMonth);
     yearsResult.innerHTML = userAge.years;
     monthsResult.innerHTML = userAge.months;
     daysResult.innerHTML = userAge.days;
@@ -111,7 +111,7 @@ function checkYear(userYear) {
   return userYear === "" || userYear > currentYear || 0 > userYear;
 }
 
-function calculateAge(birthdate) {
+function calculateAge(birthdate, userMonth) {
   // Parse the birthdate string into a Date object
   const birthDate = new Date(birthdate);
   const birthYear = birthDate.getFullYear();
@@ -120,30 +120,25 @@ function calculateAge(birthdate) {
 
   // Calculate the difference in years
   let ageInYears = currentYear - birthYear;
-
-  // Check if the birthday has occurred this year
-  const hasBirthdayOccured =
-    birthMonth < currentMonth ||
-    (birthMonth === currentMonth && birthDay <= currentDay);
-
-  // Adjust the age if the birthday has not occurred yet
-  if (!hasBirthdayOccured) {
-    ageInYears--;
-  }
-
-  // Calculate the difference in months
   let ageInMonths = currentMonth - birthMonth;
-  if (ageInMonths < 0) {
-    // If the current month is before the birth month, adjust the months
-    ageInMonths = 12 + ageInMonths;
+  let ageInDays = currentDay - birthDay;
+
+  const hasBirthYearOccured =
+    birthMonth < currentMonth ||
+    (birthMonth === currentMonth && birthDay < currentDay);
+
+  const hasBirthMonthOccured = birthMonth < currentMonth;
+
+  if (!hasBirthYearOccured) {
+    ageInMonths--;
   }
 
-  // Calculate the difference in days
-  let ageInDays = currentDay - birthDay;
+  if (hasBirthMonthOccured) {
+    ageInMonths--;
+  }
+
   if (ageInDays < 0) {
-    // If the current day is before the birth day, adjust the days
-    const lastMonth = new Date(currentYear, currentMonth - 1, 0);
-    ageInDays = lastMonth.getDate() + ageInDays;
+    ageInDays += months[Object.keys(months)[userMonth - 1]];
   }
 
   return {
