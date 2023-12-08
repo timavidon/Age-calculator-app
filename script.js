@@ -83,17 +83,9 @@ submitBtn.addEventListener("click", (e) => {
       userMonth
     );
 
-    userResultDays = userAge.days;
-    userResultMonths = userAge.months;
-    userResultYears = userAge.years;
-
-    // yearsResult.innerHTML = userAge.years;
-    // monthsResult.innerHTML = userAge.months;
-    // daysResult.innerHTML = userAge.days;
-
-    yearsResult.innerHTML = userResultYears;
-    monthsResult.innerHTML = userResultMonths;
-    daysResult.innerHTML = userResultDays;
+    yearsResult.innerHTML = userAge.years;
+    monthsResult.innerHTML = userAge.months;
+    daysResult.innerHTML = userAge.days;
   } else {
     yearsResult.innerHTML = "- -";
     monthsResult.innerHTML = "- -";
